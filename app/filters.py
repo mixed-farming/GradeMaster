@@ -5,13 +5,13 @@ from .models import Item
 
 
 class MyOrderingFilter(filters.OrderingFilter):
-    descending_fmt = '%s （降順）'
+    descending_fmt = '%s （descending order）'
 
 
 class ItemFilter(FilterSet):
 
-    name = filters.CharFilter(label='氏名', lookup_expr='contains')
-    memo = filters.CharFilter(label='備考', lookup_expr='contains')
+    name = filters.CharFilter(label='family', lookup_expr='contains')
+    memo = filters.CharFilter(label='remarks', lookup_expr='contains')
 
     order_by = MyOrderingFilter(
 
@@ -20,10 +20,10 @@ class ItemFilter(FilterSet):
             ('age', 'age'),
         ),
         field_labels={
-            'name': '氏名',
-            'age': '年齢',
+            'name': 'family name',
+            'age': 'age',
         },
-        label='並び順'
+        label='Sort oder'
     )
 
     class Meta:

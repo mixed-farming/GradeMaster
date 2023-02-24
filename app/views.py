@@ -10,21 +10,21 @@ from .models import Item
 
 
 # Create your views here.
-# 検索一覧画面
+# Search list screen
 class ItemFilterView(LoginRequiredMixin, FilterView):
     model = Item
 
-    # デフォルトの並び順を新しい順とする
+    # Default sort order to newest
     queryset = Item.objects.all().order_by('-created_at')
 
-    # django-filter用設定
+    # django-filter settings
     filterset_class = ItemFilter
     strict = False
 
-    # 1ページあたりの表示件数
+    # Number of items displayed per page
     paginate_by = 10
 
-    # 検索条件をセッションに保存する
+    # Save search criteria in session
     def get(self, request, **kwargs):
         if request.GET:
             request.session['query'] = request.GET
@@ -37,26 +37,26 @@ class ItemFilterView(LoginRequiredMixin, FilterView):
         return super().get(request, **kwargs)
 
 
-# 詳細画面
+# Details screen
 class ItemDetailView(LoginRequiredMixin, DetailView):
     model = Item
 
 
-# 登録画面
+# Registration screen
 class ItemCreateView(LoginRequiredMixin, CreateView):
     model = Item
     form_class = ItemForm
     success_url = reverse_lazy('index')
 
 
-# 更新画面
+# update screen
 class ItemUpdateView(LoginRequiredMixin, UpdateView):
     model = Item
     form_class = ItemForm
     success_url = reverse_lazy('index')
 
 
-# 削除画面
+# Delete screen
 class ItemDeleteView(LoginRequiredMixin, DeleteView):
     model = Item
     success_url = reverse_lazy('index')

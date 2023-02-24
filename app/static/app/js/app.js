@@ -1,15 +1,15 @@
-// 入力フォームでリターンキー押下時に送信させない
+// Do not send when the return key is pressed in the input form
 $('#myform').on('sumbit', function (e) {
     e.preventDefault();
 })
 
-// 連続送信防止
+// Continuous transmission prevention
 $('.save').on('click', function (e) {
     $('.save').addClass('disabled');
     $('#myform').submit();
 })
 
-// [検索を解除] の表示制御
+// Display control of remove search
 conditions = $('#filter').serializeArray();
 $.each(conditions, function(){
     if(this.value){
@@ -17,6 +17,6 @@ $.each(conditions, function(){
     }
 })
 
-// ページネーションのレスポンシブ対応
+// Responsive pagination
 // https://auxiliary.github.io/rpage/
 $(".pagination").rPage();
