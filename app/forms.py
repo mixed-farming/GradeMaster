@@ -8,7 +8,7 @@ class ItemForm(forms.ModelForm):
         model = Item
         fields = ('name','age','sex','memo')
         widgets = {
-                    'name': forms.TextInput(attrs={'placeholder':'記入例：山田　太郎'}),
+                    'name': forms.TextInput(attrs={'placeholder':'Entry example: Manoj Mallya'}),
                     'age': forms.NumberInput(attrs={'min':1}),
                     'sex': forms.RadioSelect(),
                     'memo': forms.Textarea(attrs={'rows':4}),

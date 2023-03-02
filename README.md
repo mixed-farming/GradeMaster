@@ -5,8 +5,8 @@ Overview
 
 ## Description
 
-Djangoのチュートリアル用サンプルアプリケーションです。
-紹介記事：[[Python] Djangoチュートリアル - 汎用業務Webアプリを最速で作る](https://qiita.com/okoppe8/items/54eb105c9c94c0960f14)
+Django tutorial sample application. 
+Introductory article: [Python] Django Tutorial - Creating a general-purpose business web application at the fastest speed
 
 ## Version
 
