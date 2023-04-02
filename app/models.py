@@ -42,3 +42,8 @@ class Item(models.Model):
     class Meta:
         verbose_name = 'item'
         verbose_name_plural = 'items'
+
+class Document(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+    file = models.FileField(upload_to='documents/')

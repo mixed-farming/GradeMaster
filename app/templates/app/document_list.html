@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Document List</h1>
+<ul>
+  {% for document in documents %}
+  <li>
+    <a href="{% url 'download_document' document.id %}">{{ document.name }}</a>
+  </li>
+  {% empty %}
+  <li>No documents uploaded yet.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

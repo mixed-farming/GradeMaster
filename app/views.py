@@ -5,9 +5,11 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django_filters.views import FilterView
 
 from .filters import ItemFilter
-from .forms import ItemForm
-from .models import Item
+from .forms import ItemForm, Document
+from .models import Item, Document
 
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
+from .forms import DocumentForm
 
 # Create your views here.
 # Search list screen
@@ -60,3 +62,24 @@ class ItemUpdateView(LoginRequiredMixin, UpdateView):
 class ItemDeleteView(LoginRequiredMixin, DeleteView):
     model = Item
     success_url = reverse_lazy('index')
+
+def upload_document(request):
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('document_list')
+    else:
+        form = DocumentForm()
+    return render(request, 'upload_document.html', {'form': form})
+
+def document_list(request):
+    documents = Document.objects.all()
+    return render(request, 'document_list.html', {'documents': documents})
+
+def download_document(request, id):
+    document = get_object_or_404(Document, id=id)
+    response = HttpResponse(document.file, content_type='application/pdf')
+    response['Content-Disposition'] = f'attachment; filename="{document.file.name}"'
+    return response
+

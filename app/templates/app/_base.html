@@ -12,6 +12,13 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link href="{% static "app/css/app.css" %}" rel="stylesheet">
+    <style>
+      #calender{
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
 </head>
 
 <body>
@@ -43,6 +50,28 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="{% static "app/js/plugins/responsive-paginate.js" %}"></script>
     <script src="{% static "app/js/app.js" %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        console.log('hello');
+        $('#calendar').fullCalendar({
+          selectable: true,
+          select: function(start, end) {
+            $('#calendar').fullCalendar('renderEvent', {
+              height: 150,
+              width: '50%',
+              start: start,
+              end: end,
+              rendering: 'background',
+              backgroundColor: 'green',
+              editable: false
+            }, true);
+          }
+        });
+      });
+      </script>
 </body>
 
 </html>

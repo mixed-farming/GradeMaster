@@ -1,5 +1,5 @@
 from django import forms
-from .models import Item
+from .models import Item, Document
 
 
 class ItemForm(forms.ModelForm):
@@ -13,3 +13,8 @@ class ItemForm(forms.ModelForm):
                     'sex': forms.RadioSelect(),
                     'memo': forms.Textarea(attrs={'rows':4}),
                   }
+
+class DocumentForm(forms.ModelForm):
+    class Meta:
+        model = Document
+        fields = ('name', 'description', 'file')
