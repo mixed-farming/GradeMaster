@@ -40,13 +40,28 @@ class Item(models.Model):
         verbose_name='Roll No',
         validators=[validators.MinValueValidator(1)],
         default=1
-
     )
 
     section = models.CharField(
         verbose_name='Section',
         max_length=2,
         blank=True,
+    )
+    maths = models.IntegerField(
+        verbose_name='Mathematics',
+        default=35,
+    )
+    english = models.IntegerField(
+        verbose_name='English',
+        default=35
+    )
+    science = models.IntegerField(
+        verbose_name='Science',
+        default=35
+    )
+    sst = models.IntegerField(
+        verbose_name='Social Studies',
+        default=35
     )
 
     # Display settings on the administration site
