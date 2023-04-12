@@ -54,3 +54,35 @@
     <p>{{ item.created_at|date:"Y/m/d G:i:s" }}</p>
   </div>
 </div>
+<br>
+<div class="'row">
+  <div class="'col-3">
+    <p><b>Grade Sheet</b></p>
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Subjects</th>
+          <th scope="col">Marks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Mathematics</th>
+          <td>{{item.maths}}</td>
+        </tr>
+        <tr>
+          <th scope="row">English</th>
+          <td>{{item.english}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Science</th>
+          <td>{{item.science}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Social Studies</th>
+          <td>{{item.sst}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
