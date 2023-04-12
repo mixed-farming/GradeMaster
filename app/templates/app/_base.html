@@ -55,19 +55,25 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
     <script>
       $(document).ready(function() {
-        console.log('hello');
+        var manStart, manEnd;
+        var selectedDates = JSON.parse(localStorage.getItem('selectedDates'));
+        if (selectedDates){
+          manStart = selectedDates.start;
+          manEnd = selectedDates.end;
+        }
         $('#calendar').fullCalendar({
           selectable: true,
-          select: function(start, end) {
+          select: function(manStart, manStart) {
             $('#calendar').fullCalendar('renderEvent', {
               height: 150,
               width: '50%',
-              start: start,
-              end: end,
+              start: manStart ? manStart : start,
+              end: manEnd ? manEnd : end,
               rendering: 'background',
               backgroundColor: 'green',
-              editable: false
+              editable: true
             }, true);
+            localStorage.setItem('selectedDates', JSON.stringify({start: start, end: end}));
           }
         });
       });

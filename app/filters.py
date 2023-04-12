@@ -10,8 +10,8 @@ class MyOrderingFilter(filters.OrderingFilter):
 
 class ItemFilter(FilterSet):
 
-    name = filters.CharFilter(label='family', lookup_expr='contains')
-    memo = filters.CharFilter(label='remarks', lookup_expr='contains')
+    name = filters.CharFilter(label='Name', lookup_expr='contains')
+    memo = filters.CharFilter(label='Student Remarks', lookup_expr='contains')
 
     order_by = MyOrderingFilter(
 
@@ -20,10 +20,10 @@ class ItemFilter(FilterSet):
             ('age', 'age'),
         ),
         field_labels={
-            'name': 'family name',
+            'name': 'Name',
             'age': 'age',
         },
-        label='Sort oder'
+        label='Sort Order'
     )
 
     class Meta:

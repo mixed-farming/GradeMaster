@@ -2,28 +2,20 @@
 <!--  -->
 {% block content %}
 <div class="container">
-    <h2 class="text-center">Delete data</h2>
-    <p>Delete this data. Is it OK?</p>
+  <h2 class="text-center">Delete data</h2>
+  <p>Delete this data. Is it OK?</p>
 
-    <form action="" method="post">
-        {% csrf_token %}
-        <div class="row">
-            <div class="col-12">
-                <div class="float-right">
-                    <a class="btn btn-outline-secondary" href="{% url 'index' %}">return</a>
-                    <input type="submit" class="btn btn-outline-secondary" value="delete" />
-                </div>
-            </div>
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-12">
+        <div class="float-right">
+          <a class="btn btn-outline-secondary" href="{% url 'index' %}">return</a>
+          <input type="submit" class="btn btn-outline-secondary" value="delete" />
         </div>
-        {% include "./item_card.html" %}
-        <div class="row">
-            <div class="col-12">
-                <div class="float-right">
-                    <a class="btn btn-outline-secondary" href="{% url 'index' %}">return</a>
-                    <input type="submit" class="btn btn-outline-secondary" value="delete" />
-                </div>
-            </div>
-        </div>
-    </form>
+      </div>
+    </div>
+    {% include "./item_card.html" %}
+  </form>
 </div>
 {% endblock %}

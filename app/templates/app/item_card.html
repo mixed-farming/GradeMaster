@@ -1,40 +1,56 @@
 <div class="row">
-    <div class="col-3">
-        <p>name</p>
-    </div>
-    <div class="col-9">
-        <p>{{ item.name }}</p>
-    </div>
+  <div class="col-3">
+    <p><b>Name</b></p>
+  </div>
+  <div class="col-9">
+    <p>{{ item.name }}</p>
+  </div>
 </div>
 <div class="row">
-    <div class="col-3">
-        <p>age</p>
-    </div>
-    <div class="col-9">
-        <p>{{ item.age }}</p>
-    </div>
+  <div class="col-3">
+    <p><b>Age</b></p>
+  </div>
+  <div class="col-9">
+    <p>{{ item.age }}</p>
+  </div>
 </div>
 <div class="row">
-    <div class="col-3">
-        <p>sex</p>
-    </div>
-    <div class="col-9">
-        <p>{{ item.get_sex_display }}</p>
-    </div>
+  <div class="col-3">
+    <p><b>Roll No</b></p>
+  </div>
+  <div class="col-9">
+    <p>{{ item.roll_no }}</p>
+  </div>
 </div>
 <div class="row">
-    <div class="col-3">
-        <p>remarks</p>
-    </div>
-    <div class="col-9">
-        <p>{{ item.memo|linebreaksbr }}</p>
-    </div>
+  <div class="col-3">
+    <p><b>Section</b></p>
+  </div>
+  <div class="col-9">
+    <p>{{ item.section }}</p>
+  </div>
 </div>
 <div class="row">
-    <div class="col-3">
-        <p>registration date</p>
-    </div>
-    <div class="col-9">
-        <p>{{ item.created_at|date:"Y/m/d G:i:s" }}</p>
-    </div>
+  <div class="col-3">
+    <p><b>Gender</b></p>
+  </div>
+  <div class="col-9">
+    <p>{{ item.get_sex_display }}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-3">
+    <p><b>Student Remarks</b></p>
+  </div>
+  <div class="col-9">
+    <p>{{ item.memo|linebreaksbr }}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-3">
+    <p><b>Record Timestamp</b></p>
+  </div>
+  <div class="col-9">
+    <p>{{ item.created_at|date:"Y/m/d G:i:s" }}</p>
+  </div>
 </div>

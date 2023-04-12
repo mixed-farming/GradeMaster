@@ -1,90 +1,94 @@
-{% extends "./_base.html" %}
-{% block content %} 
-{% load crispy_forms_tags %}
+{% extends "./_base.html" %} {% block content %} {% load crispy_forms_tags %}
 <div class="container">
-	<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title">Search condition</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<form id="filter" method="get">
-					<div class="modal-body">
-						{{filter.form|crispy}}
-					</div>
-				</form>
-				<div class="modal-footer">
-					<a class="btn btn-outline-secondary" data-dismiss="modal">return</a>
-					<button type="submit" class="btn btn-outline-secondary" form="filter">search</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-12">
-			<a class="btn btn-secondary filtered" style="visibility:hidden" href="/?page=1">cancel search</a>
-			<div class="float-right">
-				<a class="btn btn-outline-secondary" href="{% url 'create' %}">New</a>
-				<a class="btn btn-outline-secondary" data-toggle="modal" data-target="#myModal" href="#">search</a>
-			</div>
-		</div>
-	</div>
+  <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Search Params</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form id="filter" method="get">
+          <div class="modal-body">{{filter.form|crispy}}</div>
+        </form>
+        <div class="modal-footer">
+          <a class="btn btn-outline-secondary" data-dismiss="modal">return</a>
+          <button type="submit" class="btn btn-outline-secondary" form="filter">search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <a class="btn btn-secondary filtered" style="visibility: hidden" href="/?page=1"
+        >cancel search</a
+      >
+      <div class="float-right">
+        <a class="btn btn-outline-secondary" href="{% url 'create' %}">New</a>
+        <a class="btn btn-outline-secondary" data-toggle="modal" data-target="#myModal" href="#"
+          >search</a
+        >
+      </div>
+    </div>
+  </div>
 
-	<div class="row" >
-		<div class="col-12">
-			{% include "./_pagination.html" %}
-		</div>
-	</div>
+  <div class="row">
+    <div class="col-12">{% include "./_pagination.html" %}</div>
+  </div>
 
-	<div class="row">
-		<div class="col-12">
-			<ul class="list-group">
-				{% for item in item_list %}
-				<li class="list-group-item">
-					<div class="row">
-						<div class="col-3">
-							<p>name</p>
-						</div>
-						<div class="col-9">
-							<p>{{ item.name }}</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-3">
-							<p>registration date</p>
-						</div>
-						<div class="col-9">
-							<p>{{item.created_at|date:"Y/m/d G:i:s"}}</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-12">
-							<div class="float-right">
-								<a class="btn btn-outline-secondary " href="{% url 'detail' item.pk %}">detail</a>
-								<a class="btn btn-outline-secondary " href="{% url 'update' item.pk %}">edit</a>
-								<a class="btn btn-outline-secondary " href="{% url 'delete' item.pk %}">delete</a>
-							</div>
-						</div>
-					</div>
-				</li>
-				{% empty %}
-				<li class="list-group-item">
-					No data available
-				</li>
-				{% endfor %}
-			</ul>
-		</div>
-	</div>
-	<div class="row" >
-		<div class="col-12">
-			<div class="float-right">
-				<a class="btn btn-outline-secondary" href="{% url 'create' %}">New</a>
-				<a class="btn btn-outline-secondary" data-toggle="modal" data-target="#myModal" href="#">search</a>
-			</div>
-		</div>
-	</div>
+  <div class="row">
+    <div class="col-12">
+      <ul class="list-group">
+        {% for item in item_list %}
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-3">
+              <p><b>Student Name</b></p>
+            </div>
+            <div class="col-9">
+              <p>{{ item.name }}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <p><b>Record Timestamp</b></p>
+            </div>
+            <div class="col-9">
+              <p>{{item.created_at|date:"Y/m/d G:i:s"}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <p><b>Roll No</b></p>
+            </div>
+            <div class="col-9">
+              <p>{{ item.roll_no }}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <p><b>Section</b></p>
+            </div>
+            <div class="col-9">
+              <p>{{ item.section }}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="float-right">
+                <a class="btn btn-outline-secondary" href="{% url 'detail' item.pk %}">detail</a>
+                <a class="btn btn-outline-secondary" href="{% url 'update' item.pk %}">edit</a>
+                <a class="btn btn-outline-secondary" href="{% url 'delete' item.pk %}">delete</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        {% empty %}
+        <li class="list-group-item">No data available</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
 </div>
 {% endblock %}

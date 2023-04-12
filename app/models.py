@@ -20,19 +20,33 @@ class Item(models.Model):
         null=True,
     )
     sex = models.IntegerField(
-        verbose_name='sex',
+        verbose_name='gender',
         choices=SEX_CHOICES,
         default=1
     )
     memo = models.TextField(
-        verbose_name='remarks',
+        verbose_name='student Remarks',
         max_length=300,
         blank=True,
         null=True,
     )
     created_at = models.DateTimeField(
-        verbose_name='registration date',
+        verbose_name='Registration Date',
         auto_now_add=True
+    )
+
+    # Add default 
+    roll_no = models.IntegerField(
+        verbose_name='Roll No',
+        validators=[validators.MinValueValidator(1)],
+        default=1
+
+    )
+
+    section = models.CharField(
+        verbose_name='Section',
+        max_length=2,
+        blank=True,
     )
 
     # Display settings on the administration site

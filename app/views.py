@@ -24,7 +24,7 @@ class ItemFilterView(LoginRequiredMixin, FilterView):
     strict = False
 
     # Number of items displayed per page
-    paginate_by = 10
+    paginate_by = 3
 
     # Save search criteria in session
     def get(self, request, **kwargs):
