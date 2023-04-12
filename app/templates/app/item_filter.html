@@ -3,32 +3,29 @@
   <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Search Params</h5>
+        <div class="modal-header" style="background-color: darkcyan;">
+          <h5 class="modal-title" style="color: black;">Search Parameters</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form id="filter" method="get">
+        <form id="filter" method="get" style="background-color: #CCCCCC;">
           <div class="modal-body">{{filter.form|crispy}}</div>
         </form>
-        <div class="modal-footer">
-          <a class="btn btn-outline-secondary" data-dismiss="modal">return</a>
-          <button type="submit" class="btn btn-outline-secondary" form="filter">search</button>
+        <div class="modal-footer" style="background-color: #CCCCCC;">
+          <a class="btn btn-danger border-dark" data-dismiss="modal">Return</a>
+          <button type="submit" class="btn btn-warning border-dark" form="filter">Search</button>
         </div>
       </div>
     </div>
   </div>
+  <br>
   <div class="row">
     <div class="col-12">
-      <a class="btn btn-secondary filtered" style="visibility: hidden" href="/?page=1"
-        >cancel search</a
-      >
+      <a class="btn btn-danger border-dark filtered" style="visibility: hidden" href="/?page=1">Cancel Search</a>
       <div class="float-right">
-        <a class="btn btn-outline-secondary" href="{% url 'create' %}">New</a>
-        <a class="btn btn-outline-secondary" data-toggle="modal" data-target="#myModal" href="#"
-          >search</a
-        >
+        <a class="btn btn-success border-dark" href="{% url 'create' %}">New</a>
+        <a class="btn btn-warning border-dark" data-toggle="modal" data-target="#myModal" href="#">Search</a>
       </div>
     </div>
   </div>
@@ -41,7 +38,7 @@
     <div class="col-12">
       <ul class="list-group">
         {% for item in item_list %}
-        <li class="list-group-item">
+        <li class="list-group-item" style="background-color:#CCCCCC;">
           <div class="row">
             <div class="col-3">
               <p><b>Student Name</b></p>
@@ -77,9 +74,9 @@
           <div class="row">
             <div class="col-12">
               <div class="float-right">
-                <a class="btn btn-outline-secondary" href="{% url 'detail' item.pk %}">detail</a>
-                <a class="btn btn-outline-secondary" href="{% url 'update' item.pk %}">edit</a>
-                <a class="btn btn-outline-secondary" href="{% url 'delete' item.pk %}">delete</a>
+                <a class="btn btn-info border-dark" href="{% url 'detail' item.pk %}">Detail</a>
+                <a class="btn btn-warning border-dark" href="{% url 'update' item.pk %}">Edit</a>
+                <a class="btn btn-danger border-dark" href="{% url 'delete' item.pk %}">Delete</a>
               </div>
             </div>
           </div>
