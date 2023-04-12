@@ -17,32 +17,54 @@
         height: 100%;
         width: 100%;
       }
+      #infos{
+        background-color:#000000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+      #main{
+        background-color: #7cb9ff;
+      }
+      nav{
+        background-color:darkcyan;
+      }
+      
     </style>
 
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">GradeMaster</a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="nav-link text-primary table-bordered border-dark bg-dark" href="/">Home</a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="Navber">
+        <h2 class="mx-auto d-block text-center">
+          <b class="navbar-brand" style="font-size: 1.25em; color: #000000;">&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;GradeMaster</b>
+        </h2>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text-primary table-bordered border-dark bg-dark" href="{% url 'admin:logout'%}">Logout</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+</nav>
 
-        <div class="collapse navbar-collapse" id="Navber">
-            <ul class="navbar-nav mr-auto">
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="{% url 'admin:index'%}">management site</a>
-                </li> -->
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'admin:logout'%}">logout</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </nav>
-    {% block content %} 
-    {% endblock %}
+
+    <div id="infos" class="text-center">
+      <marquee direction="left" behavior="repeat" scrollamount="8">
+        <h6 style="color:#FF595A;">| &emsp; Attention parents: School will be closed tomorrow due to inclement weather. Please stay safe. &emsp; | &emsp; Reminder: Parent-teacher conferences will be held on Friday, April 26th from 3:00pm-6:00pm. Sign up now. &emsp; | &emsp; Community event: Local library hosting a free book giveaway this Saturday from 10am-2pm. See the email for more information. &emsp; |</h6>
+        </marquee>
+    </div>
+    <div id="main">
+        {% block content %} 
+        {% endblock %}
+    </div>
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

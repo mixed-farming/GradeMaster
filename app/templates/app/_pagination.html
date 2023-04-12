@@ -6,20 +6,20 @@
         </li>
     {% else %}
         <li class="disabled page-item pagination-next">
-            <span class="page-link">&laquo;</span>
+            <span class="page-link text-dark border-dark" style="background-color: #CCCCCC;">&laquo;</span>
         </li>
     {% endif %}
     {% for page in page_obj.paginator.page_range %}
         {% if page %}
             {% ifequal page page_obj.number %}
                 <li class="active page-item">
-                    <span class="page-link">{{ page }}
+                    <span class="page-link bg-danger border-dark">{{ page }}
                         <span class="page-link sr-only">(current)</span>
                     </span>
                 </li>
             {% else %}
                 <li class="page-item">
-                    <a class="page-link" href="?{% url_replace request 'page' page %}">{{ page }}</a>
+                    <a class="page-link bg-danger border-dark" href="?{% url_replace request 'page' page %}">{{ page }}</a>
                 </li>
             {% endifequal %}
         {% endif %}
@@ -30,7 +30,7 @@
         </li>
     {% else %}
         <li class="disabled page-item pagination-next">
-            <span class="page-link ">&raquo;</span>
+            <span class="page-link text-dark border-dark" style="background-color: #CCCCCC;">&raquo;</span>
         </li>
     {% endif %}
 </ul>
