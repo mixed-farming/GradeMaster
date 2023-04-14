@@ -24,9 +24,6 @@
         align-items: center;
         height: 100%;
       }
-      #main{
-        background-color:blanchedalmond;
-      }
       nav{
         background-color:darkcyan;
       }
@@ -36,8 +33,22 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="nav-link text-primary table-bordered border-dark bg-dark" href="/">Home</a>
+  <style>
+    .btn-new {
+        background-color: rgb(100, 178, 255);
+        border: none;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        color: white;
+        border-radius: 15%;
+      }
+      .btn-new:hover {
+        background-color: black;
+        color: rgb(100, 178, 255);
+      }
+  </style>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(209, 209, 209, 0.721);box-shadow: 3px 3px 3px;">
+    <a class="nav-link text-white table-bordered border-dark btn-new" href="/">Home</a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false"
         aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -50,18 +61,16 @@
         </h1>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link text-primary table-bordered border-dark bg-dark" href="{% url 'admin:logout'%}">Logout</a>
+                <a class="nav-link text-white table-bordered border-dark btn-new" href="{% url 'admin:logout'%}">Logout</a>
             </li>
         </ul>
     </div>
     <!-- /.navbar-collapse -->
   </nav>
 
-
-
     <div id="infos" class="text-center">
       <marquee direction="left" behavior="repeat" scrollamount="8">
-        <h6 style="color:#FF595A;">| &emsp; Attention parents: School will be closed tomorrow due to inclement weather. Please stay safe. &emsp; | &emsp; Reminder: Parent-teacher conferences will be held on Friday, April 26th from 3:00pm-6:00pm. Sign up now. &emsp; | &emsp; Community event: Local library hosting a free book giveaway this Saturday from 10am-2pm. See the email for more information. &emsp; |</h6>
+        <h6 style="color:#ff9a9a;">| &emsp; Attention parents: School will be closed tomorrow due to inclement weather. Please stay safe. &emsp; | &emsp; Reminder: Parent-teacher conferences will be held on Friday, April 26th from 3:00pm-6:00pm. Sign up now. &emsp; | &emsp; Community event: Local library hosting a free book giveaway this Saturday from 10am-2pm. See the email for more information. &emsp; |</h6>
         </marquee>
     </div>
     <div id="main">
