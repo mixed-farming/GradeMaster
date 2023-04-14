@@ -1,9 +1,15 @@
 {% extends "./_base.html" %} {% block content %}
 <div class="container">
-  <h2 class="text-center">Detail View</h2>
+  <h2 class="text-center">Student data</h2>
   <div class="row">
     <div class="col-12">
-      <a class="btn btn-danger border-dark float-right" href="{% url 'index' %}">Return</a>
+      <a class="btn btn-dark border-dark float-right btn-return" style="border-radius: 10px;" href="{% url 'index' %}">Return</a>
+      <style>
+        .btn-return:hover {
+          background-color:rgb(0, 153, 255);
+          color: black;
+        }
+      </style>
     </div>
   </div>
   <!--  -->

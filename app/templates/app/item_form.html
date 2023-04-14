@@ -9,8 +9,20 @@
   <div class="row">
     <div class="col-12">
       <div class="float-right">
-        <a class="btn btn-danger border-dark" href="{% url 'index' %}">Return</a>
-        <a class="btn btn-success border-dark save" href="#">Keep</a>
+        <a class="btn btn-dark border-dark btn-cancel" style="border-radius: 10px;" href="{% url 'index' %}">Cancel</a>
+        <style>
+          .btn-cancel:hover {
+            background-color:rgb(255, 60, 60);
+            color: black;
+          }
+        </style>
+        <a class="btn btn-dark border-dark save btn-save" style="border-radius: 10px;" href="#">Save</a>
+        <style>
+          .btn-save:hover {
+            background-color:rgb(127, 192, 52);
+            color: black;
+          }
+        </style>
       </div>
     </div>
   </div>

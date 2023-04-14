@@ -1,4 +1,4 @@
-{% load static %}
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +11,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <link href="{% static "app/css/app.css" %}" rel="stylesheet">
+    <link href="{% static 'app/css/app.css' %}" rel="stylesheet">
     <style>
       #calender{
         height: 100%;
@@ -25,7 +25,7 @@
         height: 100%;
       }
       #main{
-        background-color: #7cb9ff;
+        background-color:blanchedalmond;
       }
       nav{
         background-color:darkcyan;
@@ -43,9 +43,11 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="Navber">
-        <h2 class="mx-auto d-block text-center">
-          <b class="navbar-brand" style="font-size: 1.25em; color: #000000;">&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;GradeMaster</b>
-        </h2>
+        <h1 class="mx-auto">
+          <b>&emsp;&emsp;&emsp; &emsp;</b>
+          <img id="img" src="static\app\img\grademaster-crop.png" alt="Logo" height="90" width="90">
+          <b class="navbar-brand" style="font-size: 1.25em; color: #000000;">GradeMaster</b>
+        </h1>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link text-primary table-bordered border-dark bg-dark" href="{% url 'admin:logout'%}">Logout</a>
@@ -53,7 +55,8 @@
         </ul>
     </div>
     <!-- /.navbar-collapse -->
-</nav>
+  </nav>
+
 
 
     <div id="infos" class="text-center">
