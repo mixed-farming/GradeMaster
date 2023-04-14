@@ -9,12 +9,12 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form id="filter" method="get" style="background-color: #CCCCCC;">
+        <form id="filter" method="get" >
           <div class="modal-body">{{filter.form|crispy}}</div>
         </form>
         <div class="modal-footer" style="background-color: #CCCCCC;">
-          <a class="btn btn-danger border-dark" data-dismiss="modal">Return</a>
-          <button type="submit" class="btn btn-warning border-dark" form="filter">Search</button>
+          <a class="btn btn-dark border-dark text-white" style="border-radius: 20px;" data-dismiss="modal">Cancel</a>
+          <button type="submit" class="btn btn-dark border-dark" style="border-radius: 20px;" form="filter">Search</button>
         </div>
       </div>
     </div>
@@ -22,10 +22,22 @@
   <br>
   <div class="row">
     <div class="col-12">
-      <a class="btn btn-danger border-dark filtered" style="visibility: hidden" href="/?page=1">Cancel Search</a>
+      <a class="btn btn-dark border-dark filtered" style="border-radius: 20px; visibility: hidden" href="/?page=1">Cancel Search</a>
       <div class="float-right">
-        <a class="btn btn-success border-dark" href="{% url 'create' %}">New</a>
-        <a class="btn btn-warning border-dark" data-toggle="modal" data-target="#myModal" href="#">Search</a>
+        <a class="btn btn-dark border-dark btn-new" style="border-radius: 20px;" href="{% url 'create' %}">New</a>
+        <style>
+          .btn-new:hover {
+            background-color:rgb(100, 178, 255);
+            color:black;
+          }
+        </style>
+        <a class="btn btn-dark border-dark btn-search" style="border-radius: 20px;" data-toggle="modal" data-target="#myModal" href="#">Search</a>
+        <style>
+          .btn-search:hover {
+            background-color:darkorange;
+            color: black;
+          }
+        </style>
       </div>
     </div>
   </div>
@@ -72,11 +84,42 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-12">
-              <div class="float-right">
-                <a class="btn btn-info border-dark" href="{% url 'detail' item.pk %}">Detail</a>
-                <a class="btn btn-warning border-dark" href="{% url 'update' item.pk %}">Edit</a>
-                <a class="btn btn-danger border-dark" href="{% url 'delete' item.pk %}">Delete</a>
+            <div class="col-12" >
+              <button class="navbar-toggler d-flex justify-content-center align-items-center" type="button" data-toggle="collapse" data-target="#myButtonGroup{{ item.id }}" aria-controls="myButtonGroup" aria-expanded="false" aria-label="Toggle navigation">
+                Options
+              </button>
+              <style>
+                .navbar-toggler {
+                  font-size:medium;
+                  padding: .2rem 2rem;
+                  border: 3px black ridge;
+                  background-color:rgb(132, 167, 233);
+                }
+              </style>
+              <div class="collapse" id="myButtonGroup{{ item.id }}">
+                <div class="float-right">
+                  <a class="btn btn-dark border-dark btn-detail" style="border-radius: 10px;" href="{% url 'detail' item.pk %}">Details</a>
+                  <style>
+                    .btn-detail:hover {
+                      background-color:rgb(0, 153, 255);
+                      color: black;
+                    }
+                  </style>
+                  <a class="btn btn-dark border-dark btn-edit" style="border-radius: 10px;" href="{% url 'update' item.pk %}">Edit</a>
+                  <style>
+                    .btn-edit:hover {
+                      background-color:darkorange;
+                      color: black;
+                    }
+                  </style>
+                  <a class="btn btn-dark border-dark btn-delete" style="border-radius: 10px;" href="{% url 'delete' item.pk %}">Delete</a>
+                  <style>
+                    .btn-delete:hover {
+                      background-color:rgb(255, 60, 60);
+                      color: black;
+                    }
+                  </style>
+                </div>
               </div>
             </div>
           </div>

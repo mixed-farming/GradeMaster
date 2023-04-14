@@ -13,13 +13,13 @@
         {% if page %}
             {% ifequal page page_obj.number %}
                 <li class="active page-item">
-                    <span class="page-link bg-danger border-dark">{{ page }}
+                    <span class="page-link bg-dark border-dark">{{ page }}
                         <span class="page-link sr-only">(current)</span>
                     </span>
                 </li>
             {% else %}
                 <li class="page-item">
-                    <a class="page-link bg-danger border-dark" href="?{% url_replace request 'page' page %}">{{ page }}</a>
+                    <a class="page-link border-dark" style="background-color: black;" href="?{% url_replace request 'page' page %}">{{ page }}</a>
                 </li>
             {% endifequal %}
         {% endif %}
