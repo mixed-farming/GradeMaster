@@ -26,6 +26,7 @@
               padding-left: 1.5rem;
               padding-right: 1.5rem;
               color: white;
+              border-radius: 10px;
             }
             .btn-new:hover {
               background-color: black;
@@ -70,7 +71,10 @@
     <div class="col-12">
       <ul class="list-group">
         {% for item in item_list %}
-        <li class="list-group-item" style="box-shadow: 5px 5px 10px 5px #b2b2b2">
+        <li
+          class="list-group-item"
+          style="box-shadow: 5px 5px 10px 5px #b2b2b2; margin-bottom: 15px; border-radius: 10px"
+        >
           <div class="row">
             <div class="col-3">
               <p><b>Student Name</b></p>
@@ -126,6 +130,7 @@
                   padding-bottom: 0.8rem;
                   color: white;
                   font-size: 1rem;
+                  border-radius: 10px;
                 }
                 .navbar-toggler:hover {
                   background-color: black;

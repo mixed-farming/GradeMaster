@@ -40,7 +40,7 @@
         padding-left: 1rem;
         padding-right: 1rem;
         color: white;
-        border-radius: 15%;
+        border-radius: 10px;
       }
       .btn-new:hover {
         background-color: black;
@@ -70,7 +70,7 @@
 
     <div id="infos" class="text-center">
       <marquee direction="left" behavior="repeat" scrollamount="8">
-        <h6 style="color:#ff9a9a;">| &emsp; Attention parents: School will be closed tomorrow due to inclement weather. Please stay safe. &emsp; | &emsp; Reminder: Parent-teacher conferences will be held on Friday, April 26th from 3:00pm-6:00pm. Sign up now. &emsp; | &emsp; Community event: Local library hosting a free book giveaway this Saturday from 10am-2pm. See the email for more information. &emsp; |</h6>
+        <h6 style="color:#ff9a9a;">| &emsp; Attention parents: School will be closed tomorrow due to turbulent weather. Please stay safe. &emsp; | &emsp; Reminder: Parent-teacher conferences will be held on Friday, April 26th from 3:00pm-6:00pm. Sign up now. &emsp; | &emsp; Community event: Local library hosting a free book giveaway this Saturday from 10am-2pm. See the email for more information. &emsp; |</h6>
         </marquee>
     </div>
     <div id="main">
@@ -82,35 +82,43 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar/index.global.min.js'></script>
     <script src="{% static "app/js/plugins/responsive-paginate.js" %}"></script>
     <script src="{% static "app/js/app.js" %}"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" /> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script> -->
     <script>
-      $(document).ready(function() {
-        var manStart, manEnd;
-        var selectedDates = JSON.parse(localStorage.getItem('selectedDates'));
-        if (selectedDates){
-          manStart = selectedDates.start;
-          manEnd = selectedDates.end;
-        }
-        $('#calendar').fullCalendar({
+      document.addEventListener('DOMContentLoaded', function() {
+        const calendarEl = document.getElementById('calendar')
+        const manStart = JSON.parse(localStorage.getItem('selectedDates')).start.start
+        const manEnd = JSON.parse(localStorage.getItem('selectedDates')).start.end
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
           selectable: true,
-          select: function(manStart, manStart) {
-            $('#calendar').fullCalendar('renderEvent', {
-              height: 150,
-              width: '50%',
-              start: manStart ? manStart : start,
-              end: manEnd ? manEnd : end,
-              rendering: 'background',
+          select: function(start, end) {
+              calendar.addEvent({
+              title: 'New Event',
+              start: start,
+              end: end,
+              allDay: true,
               backgroundColor: 'green',
               editable: true
-            }, true);
+            })
             localStorage.setItem('selectedDates', JSON.stringify({start: start, end: end}));
-          }
-        });
-      });
+          },
+        })
+        const event = calendar.addEvent({
+          title: 'Attended',
+          start: manStart,
+          end: manEnd,
+          allDay: true,
+          backgroundColor: 'green',
+          editable: true
+        })
+        event.setEnd(manEnd )
+        calendar.render()
+      })
       </script>
 </body>
 
