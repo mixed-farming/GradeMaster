@@ -10,8 +10,20 @@
       <div class="col-12">
         <div class="float-right">
           <h5><b>Delete this data. Is it OK?</b></h5>
-          <a class="btn btn-warning border-dark" href="{% url 'index' %}">Return</a>
-          <input type="submit" class="btn btn-danger border-dark" value="Delete" />
+          <a class="btn btn-dark border-dark btn-return" style="border-radius: 10px;" href="{% url 'index' %}">Return</a>
+          <style>
+            .btn-return:hover {
+              background-color:darkorange;
+              color: black;
+            }
+          </style>
+          <input type="submit" class="btn btn-dark border-dark btn-delete" style="border-radius: 10px;" value="Delete" />
+          <style>
+            .btn-delete:hover {
+              background-color:rgb(255,60,60);
+              color: black;
+            }
+          </style>
         </div>
       </div>
     </div>
