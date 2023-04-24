@@ -91,8 +91,9 @@
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const calendarEl = document.getElementById('calendar')
+        try{
         const manStart = JSON.parse(localStorage.getItem('selectedDates')).start.start
-        const manEnd = JSON.parse(localStorage.getItem('selectedDates')).start.end
+        const manEnd = JSON.parse(localStorage.getItem('selectedDates')).start.end;
         const calendar = new FullCalendar.Calendar(calendarEl, {
           initialView: 'dayGridMonth',
           selectable: true,
@@ -118,8 +119,27 @@
         })
         event.setEnd(manEnd )
         calendar.render()
+      }
+        catch(e){
+          const calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
+          selectable: true,
+          select: function(start, end) {
+              calendar.addEvent({
+              title: 'New Event',
+              start: start,
+              end: end,
+              allDay: true,
+              backgroundColor: 'green',
+              editable: true
+            })
+            localStorage.setItem('selectedDates', JSON.stringify({start: start, end: end}));
+          },
+        })
+        calendar.render()
+
+        }
       })
       </script>
 </body>
-
 </html>

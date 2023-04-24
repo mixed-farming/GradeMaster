@@ -1,5 +1,5 @@
 // Do not send when the return key is pressed in the input form
-$('#myform').on('sumbit', function (e) {
+$('#myform').on('submit', function (e) {
     e.preventDefault();
 })
 
