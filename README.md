@@ -1,12 +1,8 @@
 Django-Simple-CRUD-Sample
-====
-
-Overview
 
 ## Description
 
-Django tutorial sample application. 
-Introductory article: [Python] Django Tutorial - Creating a general-purpose business web application at the fastest speed
+GradeMaster is an innovative and user-friendly web-based platform designed to improve communication between teachers and parents. It allows teachers to input and update student academic data, attendance, and remarks, while parents can view their child's progress in real-time and receive notifications about their academic performance. The platform has been designed using the Django web framework, HTML, CSS, JavaScript, and Bootstrap, which ensures a user-friendly interface for all users. The project also incorporates features to ensure data security and confidentiality, such as using SQLite as the database management system and the FullCalendar content delivery network to facilitate the marking of student attendance records.
 
 ## Version
 
